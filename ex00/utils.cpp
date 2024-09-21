@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 22:06:40 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/09/08 05:10:36 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/21 12:40:55 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int is_a_single_char( const std::string& input )
 
     if ((input.length() == 1) && (input[0] < '0' || input[0] > '9'))
         return (1);
-    
+
     return (0);
 }
 

@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 00:42:48 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/09/21 13:10:37 by ymafaman         ###   ########.fr       */
+/*   Created: 2024/09/21 13:08:41 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/09/21 14:06:18 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_CONVERTER_HPP
-# define SCALAR_CONVERTER_HPP
+#ifndef CONVERT_HPP
+# define CONVERT_HPP
 
-#include <iostream>
-#include <string>
+#include <sstream>
+#include "ScalarConverter.hpp"
 #include "utils.hpp"
-#include "convert.hpp"
 
-class ScalarConverter{
-
-public :
-
-    static  void    convert( const std::string& input );
-
-private :
-
-    ScalarConverter( const ScalarConverter& ref );
-
-};
-
-
+void    nan_converter( void );
+void    char_converter( const std::string& input );
+void    int_converter( const int& val );
+void    float_converter( const std::string& input );
+void    double_converter( const std::string& input );
 
 #endif

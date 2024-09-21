@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 22:12:46 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/09/08 05:22:52 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/21 13:51:59 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #define FLOAT_MIN "-inff"
 #define SIGNED_FLOAT_MAX "+inff"
-#define FLOAT_MAX "inff" // this is not max it s inf
+#define FLOAT_MAX "inff" // this is not max it s inf so i have to change the name from max to inf
 #define NOT_A_FLOAT "nanf"
 #define POS_NOT_A_FLOAT "+nanf"
 #define NEG_NOT_A_FLOAT "-nanf"
