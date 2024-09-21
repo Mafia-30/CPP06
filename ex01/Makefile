@@ -6,7 +6,7 @@
 #    By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/09 03:32:32 by ymafaman          #+#    #+#              #
-#    Updated: 2024/09/09 06:18:40 by ymafaman         ###   ########.fr        #
+#    Updated: 2024/09/21 17:28:02 by ymafaman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all : $(NAME)
 $(NAME) : $(OBJ_FILES)
 	$(CPP) $(FLAGS) $(OBJ_FILES) -o $(NAME)
 
-%.o : %.cpp Serializer.hpp
+%.o : %.cpp Serializer.hpp DataStruct.hpp
 	$(CPP) $(FLAGS) -c $< -o $@
 
 clean :
