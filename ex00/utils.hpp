@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 22:12:46 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/09/21 13:51:59 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:41:46 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 #include <limits.h>
 #include <string>
 
-#define FLOAT_MIN "-inff"
-#define SIGNED_FLOAT_MAX "+inff"
-#define FLOAT_MAX "inff" // this is not max it s inf so i have to change the name from max to inf
+#define NEG_FLOAT_INF "-inff"
+#define POS_FLOAT_INF "+inff"
+#define FLOAT_INF "inff"
 #define NOT_A_FLOAT "nanf"
 #define POS_NOT_A_FLOAT "+nanf"
 #define NEG_NOT_A_FLOAT "-nanf"
 
-#define DOUBLE_MIN "-inf"
-#define DOUBLE_MAX "inf"
-#define SIGNED_DOUBLE_MAX "+inf"
+#define NEG_DOUBLE_INF "-inf"
+#define DOUBLE_INF "inf"
+#define POS_DOUBLE_INF "+inf"
 #define NOT_A_DOUBLE "nan"
 #define POS_NOT_A_DOUBLE "+nan"
 #define NEG_NOT_A_DOUBLE "-nan"
 
 #define IMPOSSIBLE_CONVERTION "impossible"
 
-#define NON_DISP_CHAR "Non displayable"
+#define NON_DISP "Non displayable"
 
 std::string identify_type( const std::string& input );
 

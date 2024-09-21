@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 12:48:36 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/09/21 14:22:37 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/21 17:17:48 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void    char_converter( const std::string& input )
     if (val >= 32 && val <= 126)
         std::cout << "char: " << val << std::endl;
     else
-        std::cout << "char: " << NON_DISP_CHAR << std::endl;
+        std::cout << "char: " << NON_DISP << std::endl;
 
     std::cout << "int: " << static_cast<int>(val) << std::endl;
     std::cout << "float: " << static_cast<float>(val) << ".0f" << std::endl;
@@ -39,7 +39,7 @@ void    int_converter( const int& val )
     if (val >= 32 && val <= 126)
         std::cout << "char: " << static_cast<char>(val) << std::endl;
     else
-        std::cout << "char: " << NON_DISP_CHAR << std::endl;
+        std::cout << "char: " << NON_DISP << std::endl;
 
     std::cout << "int: " << val << std::endl;
     std::cout << "float: " << static_cast<float>(val) << ".0f" << std::endl;
@@ -50,21 +50,21 @@ void    float_converter( const std::string& input )
 {
     if (input == NOT_A_FLOAT || input == NEG_NOT_A_FLOAT || input == POS_NOT_A_FLOAT)
     {
-        nan_converter();
+        return nan_converter();
     }
-    else if (input == FLOAT_MIN)
+    else if (input == NEG_FLOAT_INF)
     {
-        std::cout << "char: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "int: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "float: " << FLOAT_MIN << std::endl;
-        std::cout << "double: " << DOUBLE_MIN << std::endl;
+        std::cout << "char: " << NON_DISP << std::endl;
+        std::cout << "int: " << NON_DISP << std::endl;
+        std::cout << "float: " << NEG_FLOAT_INF << std::endl;
+        std::cout << "double: " << NEG_DOUBLE_INF << std::endl;
     }
-    else if (input == FLOAT_MAX || input == SIGNED_FLOAT_MAX)
+    else if (input == FLOAT_INF || input == POS_FLOAT_INF)
     {
-        std::cout << "char: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "int: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "float: " << FLOAT_MAX << std::endl;
-        std::cout << "double: " << DOUBLE_MAX << std::endl;
+        std::cout << "char: " << NON_DISP << std::endl;
+        std::cout << "int: " << NON_DISP << std::endl;
+        std::cout << "float: " << FLOAT_INF << std::endl;
+        std::cout << "double: " << DOUBLE_INF << std::endl;
     }
     else
     {
@@ -77,21 +77,21 @@ void    float_converter( const std::string& input )
         }
         catch(const std::out_of_range& e)
         {
-            nan_converter();
+            return nan_converter();
         }
 
         if (val >= 32 && val <= 126)
             std::cout << "char: " << static_cast<char>(val) << std::endl;
         else
-            std::cout << "char: " << NON_DISP_CHAR << std::endl;
+            std::cout << "char: " << NON_DISP << std::endl;
 
-        if (val <= 2147483647 && val >= -2147483648)
+        if (val <= INT_MAX && val >= INT_MIN)
             std::cout << "int: " << static_cast<int>(val) << std::endl;
         else
-            std::cout << "int: " << NON_DISP_CHAR << std::endl;
+            std::cout << "int: " << NON_DISP << std::endl;
 
         strm << val;
-        
+
         if (strm.str().find('.') == std::string::npos)
         {
             std::cout << "float: " << val << ".0f" << std::endl;
@@ -109,21 +109,21 @@ void    double_converter( const std::string& input )
 {
     if (input == NOT_A_DOUBLE || input == NEG_NOT_A_DOUBLE || input == POS_NOT_A_DOUBLE)
     {
-        nan_converter();
+        return nan_converter();
     }
-    else if (input == DOUBLE_MIN)
+    else if (input == NEG_DOUBLE_INF)
     {
-        std::cout << "char: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "int: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "float: " << FLOAT_MIN << std::endl;
-        std::cout << "double: " << DOUBLE_MIN << std::endl;
+        std::cout << "char: " << NON_DISP << std::endl; // this has to be non disp
+        std::cout << "int: " << NON_DISP << std::endl;
+        std::cout << "float: " << NEG_FLOAT_INF << std::endl;
+        std::cout << "double: " << NEG_DOUBLE_INF << std::endl;
     }
-    else if (input == DOUBLE_MAX || input == SIGNED_DOUBLE_MAX)
+    else if (input == DOUBLE_INF || input == POS_DOUBLE_INF)
     {
-        std::cout << "char: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "int: " << IMPOSSIBLE_CONVERTION << std::endl;
-        std::cout << "float: " << FLOAT_MAX << std::endl;
-        std::cout << "double: " << DOUBLE_MAX << std::endl;
+        std::cout << "char: " << NON_DISP << std::endl;
+        std::cout << "int: " << NON_DISP << std::endl;
+        std::cout << "float: " << FLOAT_INF << std::endl;
+        std::cout << "double: " << DOUBLE_INF << std::endl;
     }
     else
     {
@@ -136,27 +136,34 @@ void    double_converter( const std::string& input )
         }
         catch(const std::out_of_range& e)
         {
-            nan_converter();
+            return nan_converter();
         }
 
         if (val >= 32 && val <= 126)
             std::cout << "char: " << static_cast<char>(val) << std::endl;
         else
-            std::cout << "char: " << NON_DISP_CHAR << std::endl;
+            std::cout << "char: " << NON_DISP << std::endl;
 
-        if (val <= 2147483647 && val >= -2147483648) //have to replace this with macros
+        if (val <= INT_MAX && val >= INT_MIN)
             std::cout << "int: " << static_cast<int>(val) << std::endl;
         else
-            std::cout << "int: " << NON_DISP_CHAR << std::endl;
+            std::cout << "int: " << NON_DISP << std::endl;
 
+        strm << val;
         if (strm.str().find('.') == std::string::npos)
         {
-            std::cout << "float: " << static_cast<float>(val) << ".0f" << std::endl;
+            if (val >= FLT_MIN && val <= FLT_MAX)
+                std::cout << "float: " << static_cast<float>(val) << ".0f" << std::endl;
+            else
+                std::cout << "float: " << NON_DISP << std::endl;   
             std::cout << "double: " << val << ".0" << std::endl;
         }
         else
         {
-            std::cout << "float: " << static_cast<float>(val) << "f" << std::endl;
+            if (val >= FLT_MIN && val <= FLT_MAX)
+                std::cout << "float: " << static_cast<float>(val) << "f" << std::endl;
+            else
+                std::cout << "float: " << NON_DISP << std::endl;
             std::cout << "double: " << val << std::endl;
         }
     }

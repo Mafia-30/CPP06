@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 22:06:40 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/09/21 12:40:55 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:42:09 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool    is_a_float( const std::string& input )
     period_pos = input.find('.');
     f_pos = input.find('f');
 
-    if (input == FLOAT_MIN || input == FLOAT_MAX || input == NOT_A_FLOAT || input == NEG_NOT_A_FLOAT || input == POS_NOT_A_FLOAT || input == SIGNED_FLOAT_MAX)
+    if (input == NEG_FLOAT_INF || input == FLOAT_INF || input == NOT_A_FLOAT || input == NEG_NOT_A_FLOAT || input == POS_NOT_A_FLOAT || input == POS_FLOAT_INF)
         return (true);
 
     if ((f_pos != input.length() - 1) || (input.find('f', f_pos + 1) != std::string::npos) || (input[f_pos - 1] == '.') || (period_pos == 0) || (input.find('.', period_pos + 1) != std::string::npos))
@@ -72,8 +72,8 @@ bool    is_a_double( const std::string& input )
 {
     size_t period_pos;
 
-    if (input == DOUBLE_MIN || input == DOUBLE_MAX || input == NOT_A_DOUBLE 
-        || input == SIGNED_DOUBLE_MAX || input == POS_NOT_A_DOUBLE || input == NEG_NOT_A_DOUBLE)
+    if (input == NEG_DOUBLE_INF || input == DOUBLE_INF || input == NOT_A_DOUBLE 
+        || input == POS_DOUBLE_INF || input == POS_NOT_A_DOUBLE || input == NEG_NOT_A_DOUBLE)
             return (true);
 
     period_pos = input.find('.');
